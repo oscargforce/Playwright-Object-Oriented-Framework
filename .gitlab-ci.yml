@@ -1,0 +1,41 @@
+stages:
+  - build
+  - install
+  - test
+
+variables:
+  YARN_CACHE_FOLDER: '$CI_PROJECT_DIR/.yarn'
+  PLAYWRIGHT_BROWSERS_PATH: '$CI_PROJECT_DIR/.playwright'
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - .yarn
+    - .playwright
+    - node_modules
+
+default:
+  image: mcr.microsoft.com/playwright:v1.28.0-focal
+
+install:
+  stage: install
+  script:
+    - yarn install --frozen-lockfile
+    - npx playwright install
+  tags:
+    - builder
+
+flight booking tests:
+  stage: test
+  variables:
+    PLAYWRIGHT_HTML_REPORT: flight-booking-test-report/
+  script:
+    - yarn test
+  artifacts:
+    when: always
+    paths:
+      - ${PLAYWRIGHT_HTML_REPORT}
+    expire_in: 1 week
+  tags:
+    - builder
+

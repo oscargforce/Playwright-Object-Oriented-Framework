@@ -1,0 +1,17 @@
+{
+  "name": "playwright_demo_portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test --config=src/config/flight.config.ts --project=chromium"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@playwright/test": "^1.29.1",
+    "dayjs": "^1.11.7",
+    "dotenv": "^16.0.3",
+    "prettier": "^2.8.1"
+  }
+}
