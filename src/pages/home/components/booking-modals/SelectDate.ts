@@ -1,4 +1,5 @@
 import { Locator, Page } from '@playwright/test';
+import { getRandomDate } from '../../../../utilities/test-data/random-test-data';
 import { Date } from '../BookFlight.types';
 
 export class SelectDate {
@@ -23,11 +24,13 @@ export class SelectDate {
 
   async setCalendarDate(date: { setDate: Date }): Promise<void> {
     // The dummy website only has dates available 6 months ahead of time. Im simply adjusting the method to the limitations of the dummy website.
+    // prettier-ignore
+    const monthsOfYear = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december',];
 
     const allowedTimeToBookInAdvance = Number(process.env.MAX_TIME_IN_MONTHS_TO_BOOK_IN_ADVANCE);
-    const selectedMonth = date.setDate.month.toLowerCase();
+    const selectedMonth = monthsOfYear[date.setDate.month];
     const selectedYear = String(date.setDate.year);
-    const selectedDate = String(date.setDate.date);
+    const selectedDate = date.setDate.date === 'randomDate' ? getRandomDate() : String(date.setDate.date);
 
     for (let i = 0; i < allowedTimeToBookInAdvance; i++) {
       const month = await this.calendarMonthTitleElement.textContent();
@@ -42,6 +45,6 @@ export class SelectDate {
       if (i + 1 === allowedTimeToBookInAdvance)
         throw new Error(`${date.setDate.month} is not within range of allowed time to book in advance`);
     }
-    await this.sectionElementCalendar.getByText(selectedDate).click();
+    await this.sectionElementCalendar.getByText(selectedDate).first().click();
   }
 }

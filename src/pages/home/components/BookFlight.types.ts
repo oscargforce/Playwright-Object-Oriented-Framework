@@ -1,20 +1,6 @@
-import { TypeOfTicket } from '../../../utilities/test-data/enums';
+import { Months, TypeOfTicket } from '../../../utilities/test-data/enums';
 
-type Months =
-  | 'January'
-  | 'February'
-  | 'March'
-  | 'April'
-  | 'May'
-  | 'June'
-  | 'July'
-  | 'August'
-  | 'September'
-  | 'October'
-  | 'November'
-  | 'December';
-
-type Date = { year: number; month: Months; date: number };
+type Date = { year: number; month: Months; date: number | 'randomDate' };
 
 type AllowedAmountOfPassengers = 0 | 1 | 2 | 3 | 4;
 
