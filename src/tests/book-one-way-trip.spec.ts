@@ -22,7 +22,6 @@ test('Should work to book a one way trip', async ({ travelHomePage, page }) => {
   const currentYear = getCurrentYear();
 
   await travelHomePage.goTo();
-  await page.pause();
   await travelHomePage.flightBookingComponent.bookAFlight({
     typeOfTicket: TypeOfTicket.ONE_WAY_TRIP,
     depatureCity: 'Bagdogra',
