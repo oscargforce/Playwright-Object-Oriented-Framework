@@ -25,8 +25,7 @@ export class SelectPassengers {
   }
 
   static getInstance(page: Page) {
-    if (this.instance?.page && page !== this.instance.page) return (this.instance = new SelectPassengers(page));
-    else if (SelectPassengers.instance) return this.instance;
+    if (this.instance && page === this.instance.page) return this.instance;
     this.instance = new SelectPassengers(page);
     return this.instance;
   }

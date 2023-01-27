@@ -12,8 +12,7 @@ export class Slider {
   }
 
   static getInstance(page: Page) {
-    if (this.instance?.page && page !== this.instance.page) return (this.instance = new Slider(page));
-    else if (Slider.instance) return this.instance;
+    if (this.instance && page === this.instance.page) return this.instance;
     this.instance = new Slider(page);
     return this.instance;
   }

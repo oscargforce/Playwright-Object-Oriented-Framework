@@ -11,8 +11,7 @@ export class HeaderNavigationBar {
   }
 
   static getInstance(page: Page) {
-    if (this.instance?.page && page !== this.instance.page) return (this.instance = new HeaderNavigationBar(page));
-    else if (HeaderNavigationBar.instance) return this.instance;
+    if (this.instance && page === this.instance.page) return this.instance;
     this.instance = new HeaderNavigationBar(page);
     return this.instance;
   }

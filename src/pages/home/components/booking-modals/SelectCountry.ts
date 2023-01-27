@@ -12,8 +12,7 @@ export class SelectCountry {
   }
 
   static getInstance(page: Page) {
-    if (this.instance?.page && page !== this.instance.page) return (this.instance = new SelectCountry(page));
-    else if (SelectCountry.instance) return this.instance;
+    if (this.instance && page === this.instance.page) return this.instance;
     this.instance = new SelectCountry(page);
     return this.instance;
   }

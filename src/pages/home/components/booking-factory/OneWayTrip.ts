@@ -11,8 +11,7 @@ export class OneWayTrip extends BookingBase {
   }
 
   static getInstance(page: Page) {
-    if (this.instance?.page && page !== this.instance.page) return (this.instance = new OneWayTrip(page));
-    else if (OneWayTrip.instance) return this.instance;
+    if (this.instance && page === this.instance.page) return this.instance;
     this.instance = new OneWayTrip(page);
     return this.instance;
   }
