@@ -21,7 +21,7 @@ jobs:
 
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit !='true'
-        run: yarn ci
+        run: yarn install --frozen-lockfile
         
       - name: Install playwright browsers
         run: npx playwright install --with-deps
