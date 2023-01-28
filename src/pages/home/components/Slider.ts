@@ -5,7 +5,7 @@ export class Slider {
   readonly slideNavigatorBtnElements: Locator;
   readonly sectionElement: Locator;
 
-  constructor(private page: Page) {
+  private constructor(private page: Page) {
     this.page = page;
     this.slideNavigatorBtnElements = page.locator('[data-ikslider-control]');
     this.sectionElement = page.locator('[class="slider-container hide-mobile"]');

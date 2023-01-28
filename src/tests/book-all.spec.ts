@@ -8,19 +8,16 @@ import { getCurrentYear, getNextMonth } from '../utilities/test-data/random-test
 
 const typeOfFlightTicket: Pick<FlightBookingInfo, 'arrivalCity' | 'depatureCity' | 'typeOfTicket'>[] = [
   { typeOfTicket: TypeOfTicket.ONE_WAY_TRIP, arrivalCity: 'Bagdogra', depatureCity: 'Chennai' },
-  {
-    typeOfTicket: TypeOfTicket.MULTI_TRIP,
-    arrivalCity: ['Chennai', 'Goa', 'Bangkok'],
-    depatureCity: ['Bagdogra', 'Amritsar', 'Bhopal'],
-  },
+  { typeOfTicket: TypeOfTicket.MULTI_TRIP, arrivalCity: ['Chennai', 'Goa', 'Bangkok'], depatureCity: ['Bagdogra', 'Amritsar', 'Bhopal'] },
   { typeOfTicket: TypeOfTicket.ROUND_TRIP, arrivalCity: 'Bagdogra', depatureCity: 'Chennai' },
 ];
 
+const currentYear = getCurrentYear();
+const nextMonth = getNextMonth();
+const twoMonthsFromNow = getNextMonth({ addition: 2 });
+
 for (const ticket of typeOfFlightTicket) {
   test.describe.parallel(() => {
-    const currentYear = getCurrentYear();
-    const nextMonth = getNextMonth();
-    const twoMonthsFromNow = getNextMonth({ addition: 2 });
 
     test(`Should work to book a ${ticket.typeOfTicket}`, async ({ travelHomePage }) => {
       await travelHomePage.goTo();

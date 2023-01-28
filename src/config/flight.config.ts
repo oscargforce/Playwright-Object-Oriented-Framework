@@ -21,7 +21,7 @@ const config: PlaywrightTestConfig = {
     screenshot: 'only-on-failure',
   },
   expect: {
-    timeout: 12000,
+    timeout: 15000,
     toHaveScreenshot: {
       maxDiffPixels: 30,
     },

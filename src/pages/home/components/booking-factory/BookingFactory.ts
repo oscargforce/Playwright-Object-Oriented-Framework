@@ -10,7 +10,7 @@ export class BookingFactory {
   private _roundTrip: RoundTrip;
   private _multiTrip: MultiTrip;
 
-  constructor(private page: Page) {
+  private constructor(private page: Page) {
     this._oneWayTrip = OneWayTrip.getInstance(page);
     this._roundTrip = RoundTrip.getInstance(page);
     this._multiTrip = MultiTrip.getInstance(page);

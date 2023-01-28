@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@playwright/test": "^1.29.1",
+    "@playwright/test": "^1.30.0",
     "dayjs": "^1.11.7",
     "dotenv": "^16.0.3",
     "prettier": "^2.8.1"

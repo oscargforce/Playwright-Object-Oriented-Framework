@@ -7,8 +7,8 @@ I use an object-oriented approach using the Playwright Test library and implemen
 - Factory design pattern 
 - Single responsibility principle
 - Page object model.
+## Documentation
 
-Please see the MIRO for the architectural design.
 
 ## A brief explanation of how the code works:
 
