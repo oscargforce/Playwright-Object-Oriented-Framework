@@ -7,8 +7,10 @@ I use an object-oriented approach using the Playwright Test library and implemen
 - Factory design pattern 
 - Single responsibility principle
 - Page object model.
-## Documentation
 
+## Documentation
+- [How page objects are designed](https://github.com/oscargforce/Playwright-Object-Oriented-Framework/blob/main/documentation/page-objects.md) 
+- [Booking factory](https://github.com/oscargforce/Playwright-Object-Oriented-Framework/blob/main/documentation/Book-flight-strategy.md)
 
 ## A brief explanation of how the code works:
 
