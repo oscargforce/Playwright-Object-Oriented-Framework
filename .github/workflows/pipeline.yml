@@ -15,6 +15,7 @@ jobs:
         with:
           node-version: 19
           cache: 'yarn'
+      - run: yarn install --frozen-lockfile
         
       - name: Install playwright browsers
         run: npx playwright install --with-deps
