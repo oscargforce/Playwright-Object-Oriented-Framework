@@ -44,6 +44,6 @@ export class SelectDate {
       if (i + 1 === allowedTimeToBookInAdvance)
         throw new Error(`${date.setDate.month} is not within range of allowed time to book in advance`);
     }
-    await this.sectionElementCalendar.locator(`a:has-text("${selectedDate}")`).click();
+    await this.sectionElementCalendar.locator(`a:text("${selectedDate}")`).click();
   }
 }
