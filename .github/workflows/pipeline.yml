@@ -12,16 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-
-      - name: Cache dependencies
-        uses: actions/cache@v3
         with:
-          path: ~/.yarn
-          key: deps-node-modules-${{ hashFiles('**/yarn.lock') }}
-
-      - name: Install dependencies
-        if: steps.cache.outputs.cache-hit !='true'
-        run: yarn install --frozen-lockfile
+          node-version: 19
+          cache: 'yarn'
         
       - name: Install playwright browsers
         run: npx playwright install --with-deps
