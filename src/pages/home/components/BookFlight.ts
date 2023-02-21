@@ -17,7 +17,7 @@ export class BookFlight {
     this.getSelectCountryModal = SelectCountry.getInstance(page);
     this.getSelectDateModal = SelectDate.getInstance(page);
     this.getSelectPassengersModal = SelectPassengers.getInstance(page);
-    this._bookingFactory = new BookingFactory(page);
+    this._bookingFactory = BookingFactory.getInstance(page);
   }
 
   static getInstance(page: Page) {

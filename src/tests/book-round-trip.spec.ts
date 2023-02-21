@@ -2,7 +2,7 @@ import { test } from '../pages/fixtures';
 import { TypeOfTicket } from '../utilities/test-data/enums';
 import { getCurrentYear, getNextMonth } from '../utilities/test-data/random-test-data';
 
-test('Should work to book a round trip', async ({ travelHomePage }) => {
+test(`Should work to book a round trip`, async ({ travelHomePage }) => {
   const currentYear = getCurrentYear();
   const nextMonth = getNextMonth();
 
@@ -18,3 +18,4 @@ test('Should work to book a round trip', async ({ travelHomePage }) => {
     currency: 'USD',
   });
 });
+
